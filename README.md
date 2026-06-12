@@ -85,6 +85,25 @@ On the Android device:
 3. Select **All interfaces** (or specific IP)
 4. Port: `8080`
 
+## After Reboot (Quick Reconnect)
+
+After rebooting your device/emulator, you don't need full setup again. Just run:
+
+**Windows:**
+```powershell
+.\reconnect-windows.ps1
+```
+
+**Linux/macOS:**
+```bash
+./reconnect-linux.sh
+```
+
+This will:
+- Re-mount the system CA (APEX overlay is lost on reboot)
+- Restart Frida server
+- Re-apply proxy settings
+
 ## Usage
 
 ### Intercept Traffic with SSL Pinning Bypass
@@ -210,9 +229,11 @@ adb push burp_cacert.crt /data/local/tmp/cert-der.crt
 
 ```
 android-testing/
-├── setup-windows.ps1       # Windows setup script
-├── setup-linux.sh          # Linux setup script
-├── setup-macos.sh          # macOS setup script
+├── setup-windows.ps1       # Windows full setup script
+├── setup-linux.sh          # Linux full setup script
+├── setup-macos.sh          # macOS full setup script
+├── reconnect-windows.ps1   # Windows quick reconnect (after reboot)
+├── reconnect-linux.sh      # Linux/macOS quick reconnect (after reboot)
 ├── ssl-bypass-universal.js # Universal SSL bypass
 ├── sslbypass.js            # Legacy re-pinning bypass
 ├── burp_cacert.crt         # Your Burp CA certificate
