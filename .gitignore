@@ -1,0 +1,32 @@
+# Certificates (user should add their own)
+*.crt
+*.pem
+*.der
+*.p12
+*.0
+
+# Frida server binaries (large files, user should download)
+frida-server/
+frida-server-*
+
+# Platform tools (user should download)
+platform-tools*/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
